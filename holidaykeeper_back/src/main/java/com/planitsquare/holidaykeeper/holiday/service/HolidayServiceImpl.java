@@ -84,7 +84,7 @@ public class HolidayServiceImpl implements HolidayService {
     private void validateYear(Integer year) {
         int currentYear = LocalDate.now().getYear();
         if (year == null) return;
-        if (year <= currentYear-5 || year >= currentYear) {
+        if (year < currentYear-5 || year > currentYear) {
             throw new BusinessException(ErrorCode.INVALID_YEAR_RANGE,currentYear-5,currentYear);
         }
     }
