@@ -57,3 +57,10 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+test {
+	jvmArgs "-XX:+EnableDynamicAgentLoading"
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}

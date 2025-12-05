@@ -21,7 +21,7 @@ import java.time.LocalDate;
 public class HolidayController {
 
     private final HolidayService holidayService;
-
+    // 공휴일 검색 + 필터링 (페이징)
     @GetMapping
     public ResponseEntity<ResponseDto<Page<HolidayResponseDto>>> searchHolidays(
             @RequestParam(required = false) Integer year,
@@ -44,7 +44,7 @@ public class HolidayController {
         Page<HolidayResponseDto> result = holidayService.searchHolidays(condition, pageable);
         return ResponseEntity.ok(ResponseDto.success(result));
     }
-
+    // 특정 연도 + 국가 코드 삭제 후 다시 불러오기 (재동기화)
     @PutMapping("/refresh")
     public ResponseEntity<ResponseDto<Void>> refreshHolidays(
             @RequestParam Integer year,
@@ -53,7 +53,7 @@ public class HolidayController {
         holidayService.refreshYearAndCountry(year, countryCode);
         return ResponseEntity.ok(ResponseDto.success(null));
     }
-
+    //특정 연도 + 국가 코드 삭제
     @DeleteMapping
     public ResponseEntity<ResponseDto<Void>> deleteHolidays(
             @RequestParam Integer year,
