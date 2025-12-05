@@ -13,4 +13,10 @@ public class HolidaySearchCondition {
     private final LocalDate from;
     private final LocalDate to;
     private final String type;
+    private final String localNameKeyword;
+    private final String englishNameKeyword;
+    private final Boolean fixedHoliday;
+    private final Boolean globalHoliday;
+    private final Integer launchYearFrom;
+    private final Integer launchYearTo;
 }
