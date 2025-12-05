@@ -48,4 +48,14 @@ public class ResponseDto<T> {
                 .data(data)
                 .build();
     }
+
+    public static <T> ResponseDto<T> error(ErrorCode errorCode, String message) {
+        return new ResponseDto<>(
+                errorCode.getStatus(),
+                errorCode.getCode(),
+                message,
+                null
+        );
+    }
+
 }

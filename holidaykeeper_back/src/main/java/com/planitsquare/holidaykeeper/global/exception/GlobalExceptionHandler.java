@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
         log.warn("BusinessException: {}, message={}", errorCode, ex.getMessage());
         return ResponseEntity
                 .status(errorCode.getStatus())
-                .body(ResponseDto.error(errorCode));
+                .body(ResponseDto.error(errorCode, ex.getMessage()));
     }
 
 

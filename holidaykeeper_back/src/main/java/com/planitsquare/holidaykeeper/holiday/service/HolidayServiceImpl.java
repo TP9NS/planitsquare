@@ -72,7 +72,7 @@ public class HolidayServiceImpl implements HolidayService {
         List<Country> countries = countryRepository.findAll();
 
         int currentYear = LocalDate.now().getYear();
-        int startYear = currentYear - 4; // 최근 5년
+        int startYear = currentYear - 5; // 최근 6년 ex 2020~2025
 
         for (int year = startYear; year <= currentYear; year++) {
             for (Country country : countries) {
@@ -82,9 +82,10 @@ public class HolidayServiceImpl implements HolidayService {
     }
 
     private void validateYear(Integer year) {
+        int currentYear = LocalDate.now().getYear();
         if (year == null) return;
-        if (year < 2020 || year > 2025) {
-            throw new BusinessException(ErrorCode.INVALID_YEAR_RANGE);
+        if (year <= currentYear-5 || year >= currentYear) {
+            throw new BusinessException(ErrorCode.INVALID_YEAR_RANGE,currentYear-5,currentYear);
         }
     }
 }
