@@ -27,9 +27,9 @@ public class CountryController {
         return ResponseDto.success(countryService.searchCountries(keyword));
     }
 
-    // 단일 조회
-    @GetMapping("/{countryCode}")
-    public ResponseDto<CountryDto> getCountry(@PathVariable String countryCode) {
-        return ResponseDto.success(countryService.getCountry(countryCode));
-    }
+//    // 단일 조회(사용 x)
+//    @GetMapping("/{countryCode}")
+//    public ResponseDto<CountryDto> getCountry(@PathVariable String countryCode) {
+//        return ResponseDto.success(countryService.getCountry(countryCode));
+//    }
 }

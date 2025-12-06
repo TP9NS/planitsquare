@@ -87,10 +87,10 @@ public class HolidayController {
         holidayService.deleteByYearAndCountry(year, countryCode);
         return ResponseEntity.ok(ResponseDto.success(null));
     }
-
-    @PostMapping("/init")
-    public ResponseEntity<ResponseDto<Void>> initLoad() {
-        holidayService.loadInitialData();
-        return ResponseEntity.ok(ResponseDto.success(null));
-    }
+//    수동 초기화 사용 x
+//    @PostMapping("/init")
+//    public ResponseEntity<ResponseDto<Void>> initLoad() {
+//        holidayService.loadInitialData();
+//        return ResponseEntity.ok(ResponseDto.success(null));
+//    }
 }
