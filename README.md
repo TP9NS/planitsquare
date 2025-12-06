@@ -35,6 +35,7 @@ Frontend(React) + Backend(Spring Boot) + Docker Compose 전체 구성으로 동�
 ## 방법 1. 백엔드·프론트엔드 개별 실행
 
 ### Backend (dev)
+**JDK 21 필수**
 ```bash
 cd holidaykeeper_back
 ./gradlew clean test

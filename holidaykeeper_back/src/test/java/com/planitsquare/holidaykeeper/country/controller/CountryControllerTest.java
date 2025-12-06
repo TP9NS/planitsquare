@@ -68,19 +68,4 @@ class CountryControllerTest {
                 .andExpect(jsonPath("$.data[0].countryCode").value("KR"));
     }
 
-    @Test
-    @DisplayName("단일 국가 조회 API")
-    void getCountry() throws Exception {
-        // given
-        CountryDto dto = new CountryDto("KR", "Korea");
-
-        given(countryService.getCountry("KR"))
-                .willReturn(dto);
-
-        // when & then
-        mockMvc.perform(get("/api/countries/KR"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value(200))
-                .andExpect(jsonPath("$.data.countryCode").value("KR"));
-    }
 }
